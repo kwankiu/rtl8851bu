@@ -8,7 +8,7 @@ EXTRA_CFLAGS += -DCONFIG_RADIO_WORK
 ifeq ($(CONFIG_SDIO_HCI), y)
 EXTRA_CFLAGS += -DRTW_WKARD_SDIO_TX_USE_YIELD
 endif
-SUBARCH := $(shell uname -m | sed -e s/i.86/i386/)
+SUBARCH := $(shell uname -m | sed -e "s/i.86/i386/; s/armv.l/arm/; s/aarch64/arm64/;")
 ARCH ?= $(SUBARCH)
 CROSS_COMPILE ?=
 KVER  := $(shell uname -r)
